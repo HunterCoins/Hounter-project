@@ -12,6 +12,7 @@
             align-items: center;
             list-style-type: none;
             gap: 24px;
+            z-index: 1;
             &__item {
                 &-btn{
                     transition: all 0.3s;
@@ -79,6 +80,7 @@
             font-size: 14px;
             line-height: 22px;
             color: #047857;
+            z-index: 1;
             &:hover {
                 background-color: #b2f1d1;
             }   

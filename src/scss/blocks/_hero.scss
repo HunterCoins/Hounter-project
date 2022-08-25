@@ -1,5 +1,6 @@
 .hero {
     position: relative;
+    height: 634px;
     &__blur {
         position: absolute;
         top: -86px;
@@ -85,7 +86,7 @@
         position: absolute;
         top: -86px;
         right: 0;
-        z-index: -1;
+        z-index: 0;
         &-bg {
             z-index: -1;
         }

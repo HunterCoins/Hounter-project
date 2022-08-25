@@ -1,4 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
+    function deleteNotDigits(src) {
+        return +src.replace(/\D/g, '');
+    }
 
     function dropdown() {
         let trigger = document.querySelector('.with__submenu');
@@ -12,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     dropdown();
 
-    function slider() {
+    function heroSlider() {
         function changeDotsOpacity() {
             dots.forEach(dot => dot.style.opacity ='.4');
             dots[slideIndex - 1].style.opacity = 1;
@@ -25,11 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
               slidesField = document.querySelector('.hero__slider-width');
         let offset = 0,
             slideIndex = 1;
-        
-
-        function deleteNotDigits(src) {
-            return +src.replace(/\D/g, '');
-        }
 
         const indicators = document.createElement('ol'),
               dots = [];
@@ -62,6 +60,57 @@ window.addEventListener('DOMContentLoaded', () => {
             }); 
         });
     }
-    slider();
+    heroSlider();
 
+    function arrowSlider() {
+        const slides = document.querySelectorAll('.featured__slider-item'),
+              slide = slides[0],
+              slider = document.querySelector('.featured__slider'),
+              slideWidth = window.getComputedStyle(slide).width,
+              slidesField = document.querySelector('.featured__slider-width'),
+              slideGap = window.getComputedStyle(slidesField).gap,
+              prev = document.querySelector('.featured__arrows-prev'),
+              next = document.querySelector('.featured__arrows-next');
+
+        let offset = 0,
+            slideIndex = 0,
+            visibleSlides = 3,
+            maxSlides = (slides.length%visibleSlides == 0 ? 
+                slides.length - visibleSlides : 
+                slides.length - slides.length%visibleSlides),
+            width = deleteNotDigits(slideWidth) + deleteNotDigits(slideGap);
+        
+        slidesField.style.width = width * slides.length + 'px';
+
+        next.addEventListener('click', () => {
+            slideIndex += visibleSlides;
+
+            if (slideIndex / slides.length >= 1) {
+                offset = 0;
+                slideIndex = 0;
+            } else {
+                offset += width * visibleSlides;
+            }
+            slidesField.style.transform = `translateX(-${offset}px)`;
+            console.log(slideIndex);
+            console.log(offset);
+        });
+
+        prev.addEventListener('click', () => {
+
+            if (offset == 0) {
+                offset = width * maxSlides;
+                slideIndex = maxSlides;
+            } else {
+                offset -= width * visibleSlides;
+                slideIndex -= visibleSlides;
+            }
+            
+            slidesField.style.transform = `translateX(-${offset}px)`;
+
+            console.log(slideIndex);
+            console.log(offset);
+        });
+    }
+    arrowSlider();
 });
