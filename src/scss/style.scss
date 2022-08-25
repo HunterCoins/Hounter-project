@@ -8,13 +8,17 @@
     font-family: 'Lexend', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .container {
-    width: 1200 px;
+    width: 1200px;
     margin: 0 auto;
 }
 
-h1 {
-    font-size: 36px;
-}
+
+
+@import 'blocks/header';
+@import 'blocks/hero';
+
+

@@ -1,0 +1,88 @@
+.navbar {
+    height: 46px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    &__wrapper {
+        display: flex;
+        .menu {
+            position: relative;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            gap: 24px;
+            &__item {
+                &-btn{
+                    transition: all 0.3s;
+                    background: rgba(255, 255, 255, 0.1);
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: #F0F3FD;
+                    text-decoration: none;
+                    padding: 8px 16px;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 32px;
+                    img {
+                        transform: rotate(0deg);
+                        transition: .3s transform;
+                        margin-left: 10px;
+                        background: rgba(255, 255, 255, 0);
+                        &.active {
+                            transform: rotate(180deg);
+                        }
+                    }
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                    }
+                }
+            }
+            .submenu {
+                list-style-type: none;
+                position: absolute;
+                display: none;
+                top: 40px;
+                z-index: 1;
+                &__item {
+                    transition: all 0.3s;
+                    background: rgba(255, 255, 255, 0.1);
+                    width: 120px;
+                    text-align: center;
+                    text-decoration: none;
+                    padding: 5px 0 5px 0;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 32px;
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                    }
+                }
+                &__link {
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: #F0F3FD;
+                }
+                &.active {
+                    display: block;
+                }
+            }
+        }
+        .signup {
+            margin-left: 56px;
+            padding: 12px 24px;
+            border: none;
+            background: #D1FAE5;
+            border-radius: 32px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 22px;
+            color: #047857;
+            &:hover {
+                background-color: #b2f1d1;
+            }   
+        }
+    }
+    
+}
