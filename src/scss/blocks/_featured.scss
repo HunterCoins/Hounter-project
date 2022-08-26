@@ -39,6 +39,10 @@
             margin-bottom: 0;
         }
         &-tab {
+            -webkit-user-select: none;  
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none;
             transition: all .3s;
             border: 1px solid #E0E3EB;
             border-radius: 32px;
@@ -52,6 +56,7 @@
             cursor: pointer;
             svg {
                 margin-right: 8px;
+                pointer-events: none
             }
             &:hover {
                 background: #D1FAE5;
@@ -60,6 +65,14 @@
                 & svg{
                     fill: #10B981;
                 }
+            }
+            &.active-tab {
+                background: #D1FAE5;
+                    border: none;
+                    color: #10B981;
+                    & svg{
+                        fill: #10B981;
+                    }
             }
         }
     }

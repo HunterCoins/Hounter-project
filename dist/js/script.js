@@ -62,9 +62,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     heroSlider();
 
-    function arrowSlider() {
-        const slides = document.querySelectorAll('.featured__slider-item'),
-              slide = slides[0],
+    const slides = document.querySelectorAll('.featured__slider-item');
+    function arrowSlider(amount) {
+        const slide = document.querySelector('.featured__slider-item'),
               slider = document.querySelector('.featured__slider'),
               slideWidth = window.getComputedStyle(slide).width,
               slidesField = document.querySelector('.featured__slider-width'),
@@ -75,25 +75,24 @@ window.addEventListener('DOMContentLoaded', () => {
         let offset = 0,
             slideIndex = 0,
             visibleSlides = 3,
-            maxSlides = (slides.length%visibleSlides == 0 ? 
-                slides.length - visibleSlides : 
-                slides.length - slides.length%visibleSlides),
+            maxSlides = (amount%visibleSlides == 0 ? 
+                amount - visibleSlides : 
+                amount - amount%visibleSlides),
             width = deleteNotDigits(slideWidth) + deleteNotDigits(slideGap);
         
-        slidesField.style.width = width * slides.length + 'px';
+        slidesField.style.width = width * amount + 'px';
+        slidesField.style.transform = `translateX(-${offset}px)`;
 
         next.addEventListener('click', () => {
             slideIndex += visibleSlides;
 
-            if (slideIndex / slides.length >= 1) {
+            if (slideIndex / amount >= 1) {
                 offset = 0;
                 slideIndex = 0;
             } else {
                 offset += width * visibleSlides;
             }
             slidesField.style.transform = `translateX(-${offset}px)`;
-            console.log(slideIndex);
-            console.log(offset);
         });
 
         prev.addEventListener('click', () => {
@@ -107,10 +106,45 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             
             slidesField.style.transform = `translateX(-${offset}px)`;
-
-            console.log(slideIndex);
-            console.log(offset);
         });
     }
-    arrowSlider();
+    arrowSlider(slides.length);
+
+    function selector() {
+        const tabs = document.querySelectorAll('.featured__selector-tab'),
+              slides = document.querySelectorAll('.featured__slider-item');
+              
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                let amount = 0;
+
+                if (tab.classList.contains('active-tab')) {
+                    tab.classList.remove('active-tab');
+                    
+                    slides.forEach(slide => {
+                        slide.style.display = 'block';
+                        amount++;
+                    });
+                } else {
+                    tabs.forEach(tab => {
+                        tab.classList.remove('active-tab');
+                    });
+                    e.target.classList.add('active-tab');
+
+                    slides.forEach(slide => {
+                        if(slide.getAttribute('data-house-type') === e.target.innerText) {
+                            slide.style.display = "block";
+                            amount++;
+                        } else {
+                            slide.style.display = 'none';
+                        }
+                    });
+                }
+                arrowSlider(amount);  
+                
+            });
+        });
+
+    }
+    selector();
 });
