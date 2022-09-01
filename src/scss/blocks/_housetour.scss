@@ -1,0 +1,130 @@
+.housetour {
+    margin-top: 120px;
+    position: relative;
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__blur {
+        position: absolute;
+        top: -270px;
+        right: 0;
+        z-index: -1;
+    }
+    &__info {
+        margin-top: 28px;
+        &-subtitle {
+            margin-top: 16px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28px;
+            @include light-gray;
+        }
+    }
+    &__details {
+        &-text {
+            margin-top: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 28px;
+            color: $primary;
+            opacity: 0.75;
+        }
+        &-block {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: repeat(2, 200px);
+            column-gap: 40px;
+            row-gap: 16px;
+        }
+        &-inner {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: #3C4563;
+        }
+    }
+    &__divider {
+        width: 440px;
+        height: 2px;
+        margin: 32px 0;
+        background: #F0F3FD;
+    }
+    &__contact {
+        width: 440px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-info {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        &-name {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            color: #0E1735;
+        }
+        &-position {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #888B97;
+        }
+        &-btn {
+            display: flex;
+            align-items: center;
+            transition: all .3s;
+            width: 163px;
+            height: 48px;
+            padding-left: 56px;
+            background: #10B981 url('../../icons/housetour/contact.svg') no-repeat 16px 12px;
+            border-radius: 32px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #FFFFFF;
+            border: none;
+            &:hover {
+                text-decoration: none;
+                color: #FFFFFF;
+                transform: scale(1.16);
+                background-color: #27d198;
+                border: none;
+            }
+        }
+    }
+    &__example {
+        position: relative;
+        display: flex;
+        &-couch {
+            position: absolute;
+            bottom: -43px;
+            left: -40px;
+
+        }
+        &-item {
+            position: absolute;
+            bottom: -43px;
+            right: 124px;
+        }
+        &-add {
+            position: absolute;
+            bottom: -43px;
+            right: 20px;
+        }
+        &-play {
+            transition: all .3s;
+            position: absolute;
+            top: 184px;
+            right: 220px;
+            cursor: pointer;
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+    }
+}

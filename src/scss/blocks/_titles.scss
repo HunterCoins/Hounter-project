@@ -1,0 +1,24 @@
+.title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    color: $primary;
+    margin: 0;
+    &-orangeleft {
+        position: relative;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        color: #F59E0B;
+        margin-bottom: 12px;
+        &:before {
+            position: absolute;
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: #F59E0B;
+            left: -40px;
+            top: 9px;
+        }
+    }
+}

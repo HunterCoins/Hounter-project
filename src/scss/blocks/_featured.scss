@@ -7,29 +7,6 @@
     }
     &__text {
         padding-left: 40px;
-        &-recommend {
-            position: relative;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 18px;
-            color: #F59E0B;
-            &:before {
-                position: absolute;
-                content: '';
-                width: 32px;
-                height: 1px;
-                background: #F59E0B;
-                left: -40px;
-                top: 9px;
-            }
-        }
-        &-title {
-            margin: 12px 0 0 0 ;
-            color: $primary;
-            font-weight: 600;
-            font-size: 32px;
-            line-height: 40px;
-        }
     }
     &__selector {
         &-tabs {
