@@ -8,13 +8,6 @@
         color: #F59E0B;
         margin-bottom: 12px;
     }
-    &__orangedivider {
-        width: 32px;
-        height: 1px;
-        background: #F59E0B;
-        margin: 0 auto;
-        margin-bottom: 8px;
-    }
     &__slider {
         margin-top: 40px;
         width: 100%;
@@ -111,4 +104,11 @@
             background: #3C4563;
         }
     }
+}
+.orangedivider {
+    width: 32px;
+    height: 1px;
+    background: #F59E0B;
+    margin: 0 auto;
+    margin-bottom: 8px;
 }

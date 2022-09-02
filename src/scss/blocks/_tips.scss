@@ -1,0 +1,110 @@
+.tips {
+    margin-top: 120px;
+    position: relative;
+    &__blur {
+        position: absolute;
+        z-index: -1;
+        top: -190px;
+    }
+    &__orange {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        color: #F59E0B;
+        margin-bottom: 12px;
+    }
+    &__btn {
+        margin-top: 24px;
+        margin: 24px auto 0 auto;
+        display: block;
+        border: none;
+        width: 118px;
+        height: 46px;
+        background: #10B981;
+        border-radius: 32px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 22px;
+        color: #FFFFFF;
+        padding: 12px 16px;
+        transition: all 0.4s;
+        &:hover {
+            text-decoration: none;
+            color: #FFFFFF;
+            transform: scale(1.16);
+            background-color: #27d198;
+            border: none;
+        }
+    }
+    &__wrapper {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 572px 560px;
+        column-gap: 68px;
+    }
+    &__artikels {
+        display: grid;
+        grid-template-rows: repeat(3, minmax(148px, auto));
+        row-gap: 40px;
+        &-item {
+            display: flex;
+            min-height: 148px;
+            gap: 32px;
+        }
+        &-image {
+            display: flex;
+            align-items: center;
+        }
+        &-person {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        &-name {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            color: #3C4563
+        }
+        &-title {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 32px;
+            color: $primary;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &-time {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: $dark-gray;
+        }
+    }
+    &__main {
+        &-image {
+            margin-bottom: 24px;
+        }
+        &-title {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 32px;
+            color: $primary;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &-subtitle {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            margin-top: 12px;
+            @include light-gray;
+        }
+    }
+}
