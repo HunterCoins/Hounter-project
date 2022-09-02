@@ -15,19 +15,24 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     dropdown();
 
-    function heroSlider() {
+    function dotSlider(slides, slider, slidesField, centered) {
         function changeDotsOpacity() {
             dots.forEach(dot => dot.style.opacity ='.4');
             dots[slideIndex - 1].style.opacity = 1;
         }
 
-        const slides = document.querySelectorAll(".hero__slider-item"),
-              slider = document.querySelector(".hero__slider"),
-              slideWidth = window.getComputedStyle(slides[0]).width,
-              slidesGap = window.getComputedStyle(slides[0]).gap,
-              slidesField = document.querySelector('.hero__slider-width');
+        slides = document.querySelectorAll(slides);
+        slider = document.querySelector(slider);
+        slidesField = document.querySelector(slidesField);
+
+        const slideWidth = deleteNotDigits(window.getComputedStyle(slides[0]).width),
+              slidesGap = deleteNotDigits(window.getComputedStyle(slidesField).gap);
+
+
         let offset = 0,
             slideIndex = 1;
+
+        slidesField.style.width = (slideWidth + slidesGap) * slides.length - slidesGap + 'px';
 
         const indicators = document.createElement('ol'),
               dots = [];
@@ -47,20 +52,48 @@ window.addEventListener('DOMContentLoaded', () => {
             dots.push(dot);
         }
 
-        dots.forEach(dot => {
-            dot.addEventListener('click', (e) => {
-                const slideTo = e.target.getAttribute('data-slide-to');
+        if (centered == true) {
+            const mediumDot = Math.round(slides.length/2);
 
-                slideIndex = slideTo;
+            const initialOffset = (slideWidth + slidesGap) / 2;
 
-                offset = (deleteNotDigits(slideWidth) + deleteNotDigits(slidesGap)) * (slideTo - 1);
-                slidesField.style.transform = `translateX(-${offset}px)`;
+            offset = (slideWidth + slidesGap) * (mediumDot - 1) - initialOffset;
+            slidesField.style.transform = `translateX(${-offset}px)`;
 
-                changeDotsOpacity();
-            }); 
-        });
+            slideIndex = mediumDot;
+            changeDotsOpacity();
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const slideTo = e.target.getAttribute('data-slide-to');
+    
+                    slideIndex = slideTo;
+
+                    offset = initialOffset - (slideWidth + slidesGap) * (slideTo - 1);
+
+                    slidesField.style.transform = `translateX(${offset}px)`;
+                    
+                    changeDotsOpacity();
+                }); 
+            });
+
+        } else {
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const slideTo = e.target.getAttribute('data-slide-to');
+    
+                    slideIndex = slideTo;
+    
+                    offset = (slideWidth + slidesGap) * (slideTo - 1);
+                    slidesField.style.transform = `translateX(-${offset}px)`;
+    
+                    changeDotsOpacity();
+                }); 
+            });
+        }
     }
-    heroSlider();
+    dotSlider(".hero__slider-item", ".hero__slider", '.hero__slider-width', false);
+    
 
     const slides = document.querySelectorAll('.featured__slider-item');
     function arrowSlider(amount) {
@@ -147,4 +180,45 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
     selector();
+
+    function reviewSlider(slides, slider, slidesField) {
+        function changeDotsOpacity() {
+            dots.forEach(dot => dot.style.opacity ='.4');
+            dots[slideIndex - 1].style.opacity = 1;
+        }
+
+        slides = document.querySelectorAll(slides);
+        slider = document.querySelector(slider);
+        slidesField = document.querySelector(slidesField);
+
+        const slideWidth = deleteNotDigits(window.getComputedStyle(slides[0]).width),
+              slidesGap = deleteNotDigits(window.getComputedStyle(slidesField).gap);
+
+
+        let offset = 0,
+            slideIndex = 1;
+
+        slidesField.style.width = (slideWidth + slidesGap) * slides.length - slidesGap + 'px';
+
+        const indicators = document.createElement('ol'),
+              dots = [];
+        indicators.classList.add("carousel-indicators");
+        slider.append(indicators);
+
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('li');
+            dot.setAttribute('data-slide-to', i + 1);
+            dot.classList.add('dot');
+
+            if (i == 0) {
+                dot.style.opacity = 1;
+            }
+
+            indicators.append(dot);
+            dots.push(dot);
+        }
+
+    }
+
+    dotSlider(".reviews__slider-item", ".reviews__slider", '.reviews__slider-width', true);
 });

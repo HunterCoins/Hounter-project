@@ -1,0 +1,114 @@
+.reviews {
+    min-height: 670px;
+    margin-top: 120px;
+    &__orange {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        color: #F59E0B;
+        margin-bottom: 12px;
+    }
+    &__orangedivider {
+        width: 32px;
+        height: 1px;
+        background: #F59E0B;
+        margin: 0 auto;
+        margin-bottom: 8px;
+    }
+    &__slider {
+        margin-top: 40px;
+        width: 100%;
+        &-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+        &-width {
+            height: 540px;
+            display: flex;
+            gap: 56px;
+            transition: all 0.5s;
+        }
+        &-item {
+            position: relative;
+        }
+    }
+    &__card {
+        position: absolute;
+        top: 256px;
+        left: 64px;
+        width: 612px;
+        min-height: 249px;
+        padding: 32px;
+        background: #FFFFFF;
+        box-shadow: 0px 9px 32px rgba(89, 92, 219, 0.1);
+        border-radius: 16px;
+        &-title {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 25px;
+            text-transform: capitalize;
+            color: $primary;
+            margin-bottom: 16px;
+        }
+        &-text {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            @include light-gray;
+        }
+        &-inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        &-rating {
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+        }
+        &-grade {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 28px;
+            color: #3C4563;
+        }
+    }
+    &__person {
+        display: flex;
+        gap: 24px;
+        &-icon {
+            display: flex;
+            align-items: center;
+        }
+        &-info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 140px;
+        }
+        &-name {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+            color: #0E1735;
+        }
+        &-position {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+            color: $dark-gray;
+        }
+    }
+    .container {
+        width: 1440px;
+    }
+    .carousel-indicators {
+        margin: 0;
+        justify-content: center;
+        & li {
+            width: 10px;
+            height: 10px;
+            background: #3C4563;
+        }
+    }
+}

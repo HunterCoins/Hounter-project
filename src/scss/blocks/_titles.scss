@@ -4,7 +4,7 @@
     line-height: 40px;
     color: $primary;
     margin: 0;
-    &-orangeleft {
+    &-orange {
         position: relative;
         font-weight: 500;
         font-size: 14px;
@@ -20,5 +20,8 @@
             left: -40px;
             top: 9px;
         }
+    }
+    &-centered {
+        text-align: center;
     }
 }
