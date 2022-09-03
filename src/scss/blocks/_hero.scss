@@ -51,12 +51,20 @@
             &:hover {
                 outline-width: 0;
                 background-color: #27d198;
-                transform: scale(1.16);
+                transform: scale(1.18);
             }
+            &:focus {
+                outline: none;
+            }
+        }
+        &-img {
+            position: absolute;
+            left: 24px;
+            bottom: 15px;
         }
         #site-search {
             transition: all .3s;
-            background: url('../../icons/hero/location.svg') no-repeat scroll 24px 16px;
+            // background: url('../../icons/hero/location.svg') no-repeat scroll 24px 16px;
             width: 100%;
             height: 56px;
             padding: 4px 130px 4px 64px;

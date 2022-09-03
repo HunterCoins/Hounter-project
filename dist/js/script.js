@@ -221,4 +221,15 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     dotSlider(".reviews__slider-item", ".reviews__slider", '.reviews__slider-width', true);
+
+    function forReset(inputId, button) {
+        button = document.querySelector(button);
+        inputId = document.querySelector(inputId);
+
+        button.addEventListener('click', () => {
+            inputId.value = '';
+        });
+    }
+    forReset('#site-search', '.hero__search-submit');
+    forReset('#email', '.subscribe__btn');
 });

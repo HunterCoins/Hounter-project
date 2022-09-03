@@ -35,6 +35,9 @@
             background-color: #27d198;
             border: none;
         }
+        &:focus {
+            outline: none;
+        }
     }
     &__wrapper {
         margin-top: 40px;
