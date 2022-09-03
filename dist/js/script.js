@@ -93,6 +93,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
     dotSlider(".hero__slider-item", ".hero__slider", '.hero__slider-width', false);
+    dotSlider(".reviews__slider-item", ".reviews__slider", '.reviews__slider-width', true);
     
 
     const slides = document.querySelectorAll('.featured__slider-item');
@@ -219,8 +220,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
     }
-
-    dotSlider(".reviews__slider-item", ".reviews__slider", '.reviews__slider-width', true);
 
     function forReset(inputId, button) {
         button = document.querySelector(button);

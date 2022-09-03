@@ -118,20 +118,7 @@
             line-height: 32px;
             color: #3C4563;
             margin-bottom: 24px;
-        }
-        .red {
-            background: #FEE2E2;
-            color: #EF4444;
-        }
-        .blue {
-            background: #DBEAFE;
-            color: #1D4ED8;
-        }
-        .green {
-            background: #D1FAE5;
-            color: #047857;
-        }
-        
+        }      
     }
     &__agent {
         display: flex;
@@ -150,4 +137,16 @@
             color: #888B97;
         }
     }
+}
+.red {
+    background: #FEE2E2;
+    color: #EF4444;
+}
+.blue {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+.green {
+    background: #D1FAE5;
+    color: #047857;
 }
