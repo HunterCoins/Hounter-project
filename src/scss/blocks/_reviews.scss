@@ -16,12 +16,14 @@
             width: 100%;
         }
         &-width {
+            width: 500%;
             height: 540px;
             display: flex;
             gap: 56px;
             transition: all 0.5s;
         }
         &-item {
+            width: 740px;
             position: relative;
         }
     }
